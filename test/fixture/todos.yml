@@ -1,0 +1,14 @@
+fixtures:
+  - model: Todo
+    data:
+      id: 1
+      title: 할일 1
+  - model: Todo
+    data:
+      id: 2
+      title: 할일 2
+  - model: Todo
+    data:
+      id: 3
+      title: 완료한 일
+      done: true

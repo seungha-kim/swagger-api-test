@@ -1,0 +1,27 @@
+{
+  "name": "swagger-api-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -e \"require('./app/server').start()\"",
+    "load:fixture": "node -e \"require('./fixture').load()\"",
+    "test": "cross-env NODE_ENV=test dredd app/swagger.yml http://localhost:3000"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "mysql": "^2.11.1",
+    "sequelize": "^3.24.1",
+    "umzug": "^1.11.0"
+  },
+  "devDependencies": {
+    "continuation-local-storage": "^3.1.7",
+    "cross-env": "^2.0.0",
+    "dredd": "^1.6.1",
+    "sequelize-fixtures": "^0.5.4"
+  }
+}

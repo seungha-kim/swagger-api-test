@@ -1,0 +1,68 @@
+swagger: '2.0'
+info:
+  title: Todo API
+  description: |
+    Todo API is a simple REST API for creating, updating, and completing todo items.
+  version: 0.0.1
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /todos:
+    get:
+      summary: List all todo items
+      responses:
+        200:
+          description: 'List'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Todo'
+    post:
+      summary: Create a todo item
+      parameters:
+        - name: todo
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Todo'
+          example: |
+            {"title": "할일"}
+      responses:
+        200:
+          description: 'Create'
+          schema:
+            $ref: '#/definitions/Ok'
+  /todos/{todoId}:
+    get:
+      summary: Show details of one todo item
+      parameters:
+        - name: todoId
+          in: path
+          required: true
+          type: string
+          enum:
+            - "1"
+      responses:
+        200:
+          description: 'Show'
+          schema:
+            $ref: '#/definitions/Todo'
+definitions:
+  Ok:
+    type: object
+    properties:
+      ok:
+        type: boolean
+  Todo:
+    type: object
+    properties:
+      id:
+        type: number
+      title:
+        type: string
+      done:
+        type: boolean
